@@ -1,0 +1,36 @@
++-- Desktop -> /home/ad/home/n/npaavo/Desktop
++-- Documents -> /home/ad/home/n/npaavo/Documents
++-- Downloads -> /home/ad/home/n/npaavo/Downloads
++-- kurssit
+¦   +-- _ot2019
+¦       +-- viikko1
+¦           +-- Unicafe
+¦               +-- pom.xml
+¦               +-- src
+¦                   +-- main
+¦                   ¦   +-- java
+¦                   ¦   ¦   +-- com
+¦                   ¦   ¦       +-- mycompany
+¦                   ¦   ¦           +-- unicafe
+¦                   ¦   ¦               +-- Kassapaate.java
+¦                   ¦   ¦               +-- Maksukortti.java
+¦                   ¦   ¦               +-- Paaohjelma.java
+¦                   ¦   +-- resources
+¦                   +-- test
+¦                       +-- java
+¦                           +-- com
+¦                               +-- mycompany
+¦                                   +-- unicafe
+¦                                       +-- MaksukorttiTest.java
++-- Music
++-- Pictures
+¦   +-- Screenshot from 2018-09-13 13-41-28.png
+¦   +-- Screenshot from 2018-10-09 14-41-17.png
+¦   +-- Screenshot from 2018-10-09 14-42-08.png
+¦   +-- Screenshot from 2018-10-09 14-42-22.png
++-- Public
++-- Templates
++-- Videos
+
+24 directories, 9 files
+

@@ -1,0 +1,115 @@
+commit f8bdf97cfff241959b558b7c384c26e6750a68ed
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:52:48 2019 +0200
+
+    poistettu file1 ja uudelleennimetty file2
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 901ed4fe738f17e6cd9a3f05228008aad15e8aa9
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:48:06 2019 +0200
+
+    muokattu file3
+
+ tiedostoja/file3 | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 47a3917d4d6820b93a1a9ccfa89f1d2652505e16
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:44:58 2019 +0200
+
+    luotu kansio ja tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d36bbd344e928602e2c8dfa8ecfa993697e0e646
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:32:39 2019 +0200
+
+    muokattu eka.txt ja kolmas.txt
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 2cc4820c6c4731f57a7aeb185a0c5a722cf3ce7a
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:29:00 2019 +0200
+
+    uudelleen nimetty toka.txt
+
+ toinen.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit aae423af8c248415c67ebcb59c323c1eeaa41ceb
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:27:22 2019 +0200
+
+    tiedosto.txt poistettu
+
+ tiedosto.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit b01441d9a25ea3514f249abea9bca1c194241cf0
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:24:08 2019 +0200
+
+    muokattu tiedosto.txt
+
+ tiedosto.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit b30d9e8da1c9896e66c0c2b5b0c1e4322c67a238
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:07:27 2019 +0200
+
+    lisätty kansio stuff ja tiedosto neljas.txt
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit bfaf2d1c9b54a8104f3255f3435839815477dd4e
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:06:38 2019 +0200
+
+    muokattu tiedostoja
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 61a69102dafe4e55d694b1276da8d0198d2922ac
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:05:41 2019 +0200
+
+    lisätty kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d9bbe829a3433913ea45b5985d89c5ffc4312b75
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 21:03:14 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 7af99e325c1e6af6c9c9ee1dcf9c131189da61c4
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Tue Mar 19 20:59:30 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+
