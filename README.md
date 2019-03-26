@@ -1,4 +1,7 @@
 ## Ohjelmistotekniikka
+[Työaikakirjanpito](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)
+[Vaatimusmäärittely](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+
 ### Viikon 1 laskarit
 Harjoiteltiin *terminaalin* ja **GIT**in käyttöä
 
