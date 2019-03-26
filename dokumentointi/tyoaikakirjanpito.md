@@ -1,4 +1,4 @@
-# Timesheet
+# Työaikakirjanpito
 
 | Date | Time (hours) | Subject |
 | :----:|:-----| :-----|
