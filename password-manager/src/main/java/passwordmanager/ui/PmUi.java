@@ -5,6 +5,7 @@
  */
 package passwordmanager.ui;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ import passwordmanager.domain.User;
  * @author Paavo
  */
 public class PmUi extends Application {
-    
+    ArrayList<User> users = new ArrayList<>();
     
     
     @Override
@@ -34,6 +35,13 @@ public class PmUi extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         //BorderPane layout = new BorderPane();
+        GridPane loggedinLayout = new GridPane();
+        loggedinLayout.setAlignment(Pos.CENTER);
+        Label loggedinLbl = new Label("Logged id");
+        loggedinLayout.add(loggedinLbl, 0, 0);
+        Scene loggedinScene = new Scene(loggedinLayout, 400, 400);
+
+        
         
         TextField usernameField = new TextField();
         PasswordField passwordField = new PasswordField();
@@ -44,6 +52,16 @@ public class PmUi extends Application {
         Label createAccountLbl = new Label("Don't have an account?");
         Button createAccountScnBtn = new Button("Create account");
         
+        logginBtn.setOnAction((event) -> {
+            for (User user : users) {
+                System.out.println(user.getUsername());
+                if (user.getPassword() == passwordField.getText().trim()) {
+                    primaryStage.setScene(loggedinScene);
+                }
+            }
+        });
+
+        
         layout.add(usernameField, 0, 0);
         layout.add(passwordField, 0, 1);
         layout.add(logginBtn, 0, 2);
@@ -53,7 +71,6 @@ public class PmUi extends Application {
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
-        
         
         
         GridPane createAccountLayout = new GridPane();
@@ -69,6 +86,7 @@ public class PmUi extends Application {
             String password = createPasswordField.getText();
             
             User kayttaja = new User(username, password);
+            users.add(kayttaja);
             
             primaryStage.setScene(scene);
         });
