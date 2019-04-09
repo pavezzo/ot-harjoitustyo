@@ -1,15 +1,20 @@
 ## Ohjelmistotekniikka
+
+## Password manager
+
 [Työaikakirjanpito](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)
 
 [Vaatimusmäärittely](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
-### Viikon 1 laskarit
-Harjoiteltiin *terminaalin* ja **GIT**in käyttöä
+[Arkkitehtuurikuvaus](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
 
-[Gitlog](https://github.com/pavezzo/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+## Komentorivitoiminnot
 
-[Komentorivi](https://github.com/pavezzo/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+### Ohjelman käynnistäminen
 
-### Viikkon 2 laskarit
+Ohjelman voi käynnistää komennolla
 
-[Testikattavuus](https://github.com/pavezzo/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.PNG)
+```
+mvn compile exec:java -Dexec.mainClass=passwordmanager.ui.PmUi
+```
+
