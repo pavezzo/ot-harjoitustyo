@@ -42,9 +42,17 @@ public class Database {
         
         try {
             conn.prepareStatement("INSERT INTO User (username, password) "
-                    + "VALUES ('" + user.getUsername() + "', '" + user.getPassword() +"');").executeUpdate();
+                    + "VALUES ('" + user.getUsername() + "', '" + user.getPassword() + "');").executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public boolean isUser(User user) {
+        Connection conn = loadDatabase();
+        
+        try {
+            
         }
     }
 }
