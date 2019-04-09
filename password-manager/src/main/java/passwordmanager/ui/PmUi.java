@@ -6,6 +6,8 @@
 package passwordmanager.ui;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,6 +19,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import passwordmanager.domain.Database;
 import passwordmanager.domain.User;
 
 /**
@@ -25,7 +28,7 @@ import passwordmanager.domain.User;
  */
 public class PmUi extends Application {
     ArrayList<User> users = new ArrayList<>();
-    
+    Database db = new Database();
     
     @Override
     public void init() throws Exception {
@@ -87,6 +90,12 @@ public class PmUi extends Application {
             
             User kayttaja = new User(username, password);
             users.add(kayttaja);
+            
+            try {
+                db.newUser(kayttaja);
+            } catch (Exception ex) {
+                Logger.getLogger(PmUi.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             primaryStage.setScene(scene);
         });
