@@ -56,12 +56,28 @@ public class PmUi extends Application {
         Button createAccountScnBtn = new Button("Create account");
         
         logginBtn.setOnAction((event) -> {
+            /*
             for (User user : users) {
                 System.out.println(user.getUsername());
                 if (user.getPassword() == passwordField.getText().trim()) {
                     primaryStage.setScene(loggedinScene);
                 }
             }
+            */
+            User kayttaja = new User(usernameField.getText().trim(), passwordField.getText().trim());
+ 
+           
+            try {
+                boolean loggedin = db.logIn(kayttaja);
+                System.out.println(loggedin);
+                if (loggedin) {
+                    primaryStage.setScene(loggedinScene);
+                }
+            } catch (Exception ex) {
+                
+            }
+            
+
         });
 
         

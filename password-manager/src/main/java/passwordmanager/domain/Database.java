@@ -7,6 +7,8 @@ package passwordmanager.domain;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,11 +50,24 @@ public class Database {
         }
     }
     
-    public boolean isUser(User user) {
+    public boolean logIn(User user) throws Exception {
         Connection conn = loadDatabase();
         
         try {
+            PreparedStatement stmt = conn.prepareStatement("SELECT username, password FROM User "
+                                                    + "WHERE username = '"+user.getUsername()+"' AND password = '"+ user.getPassword() + "';");
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.getString("username").equals(user.getUsername()) && rs.getString("password").equals(user.getPassword())) {
+                return true;
+            }
+            
+            
+        } catch (SQLException ex) {
             
         }
+        
+        return false;
     }
 }
