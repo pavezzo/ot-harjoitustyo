@@ -1,0 +1,104 @@
+commit 82fcab28fa229f8023338649e959d06a81b16c66
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:38:20 2022 +0200
+
+    poisto ja nimenvaihto
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7e0c4f4294da516f50a4512e6cf9bd8432ee7943
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:35:09 2022 +0200
+
+    uusi hakemisto ja tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 694cbe5d2a0883ef54f8db32b7d1af1f5c3ebeb0
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:27:21 2022 +0200
+
+    isoja muutoksia
+
+ eka.txt    | 4 ++--
+ kolmas.txt | 1 +
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 05b521429950fe74849318f68de993041644e17f
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:24:43 2022 +0200
+
+    uudelleennimeäminen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3b0a2c75d5bac5866d874e5d5548343e80a6fbaa
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:23:10 2022 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 572dcd8d2d11485b254e52f38488f6d51ab1ae88
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:21:30 2022 +0200
+
+    poistettua tekstiä ja lisätty tekstiä
+
+ tiedosto.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 5faef09cc020ec777368bc071ab4d74179c29e55
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:20:04 2022 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit 9f04ef56f548655d0a71193dec4ba75c5a75fbb9
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:12:11 2022 +0200
+
+    uusi committi
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 4f4bdbc26948ce3f857d78d4610cd0be5f7e91ec
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:10:24 2022 +0200
+
+    committi
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b42c856335cc962db294630001e856187d37a304
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:07:58 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 934c12e5fa13574019ba05deab1c9fc7f34d6a2f
+Author: Paavo Nätti <paavo.natti@gmail.com>
+Date:   Sat Mar 19 16:05:39 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
