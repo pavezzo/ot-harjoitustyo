@@ -4,4 +4,5 @@
 | :----:|:-----| :-----|
 | 29.3. | 1    | vaatimusmäärittelyn ja tuntikirjanpidon luominen |
 | 3.4.	| 2    | projektin alustus / pelilogiikan hahmottelua |
-| yht.	| 3    | |
+| 5.4.  | 1    | pytest ja coverage toimimaan, testi alustavalle pelilogiikalle, changelog |
+| yht.	| 4    | |
