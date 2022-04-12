@@ -27,8 +27,7 @@ class Game:
         change = self._move_everything(direction)
         if change:
             return self._insert_new_cell()
-        else:
-            return False
+        return False
 
     def _insert_new_cell(self):
         if not self._has_space():
@@ -48,6 +47,38 @@ class Game:
         return True
 
     def _move_everything(self, direction):
+        start_y, start_x, end_y, end_x, step_y, step_x = self._calc_move_params(direction)
+
+        change = False
+        for i in range(start_y, end_y, step_y):
+            for j in range(start_x, end_x, step_x):
+                if self.board[i][j] is None:
+                    continue
+
+                y = i
+                x = j
+                while True:
+                    old_y = y
+                    old_x = x
+                    y += directions[direction][0]
+                    x += directions[direction][1]
+                    if y < 0 or y> len(self.board)-1 or x < 0 or x > len(self.board[0])-1:
+                        break
+                    if self.board[y][x] is None:
+                        self.board[y][x] = self.board[old_y][old_x]
+                        self.board[old_y][old_x] = None
+                        change = True
+                    elif self.board[y][x] == self.board[old_y][old_x]:
+                        self.board[y][x] *= 2
+                        self.score += self.board[y][x]
+                        self.board[old_y][old_x] = None
+                        change = True
+                        break
+                    else:
+                        break
+        return change
+
+    def _calc_move_params(self, direction):
         start_y = 0
         start_x = 0
         end_y = 0
@@ -83,38 +114,11 @@ class Game:
             end_x = len(self.board[0])
             step_y = 1
             step_x = 1
+        return (start_y, start_x, end_y, end_x, step_y, step_x)
 
-        change = False
-        for i in range(start_y, end_y, step_y):
-            for j in range(start_x, end_x, step_x):
-                if self.board[i][j] is None:
-                    continue
-
-                y = i
-                x = j
-                while True:
-                    old_y = y
-                    old_x = x
-                    y += directions[direction][0]
-                    x += directions[direction][1]
-                    if y < 0 or y> len(self.board)-1 or x < 0 or x > len(self.board[0])-1:
-                        break
-                    if self.board[y][x] is None:
-                        self.board[y][x] = self.board[old_y][old_x]
-                        self.board[old_y][old_x] = None
-                        change = True
-                    elif self.board[y][x] == self.board[old_y][old_x]:
-                        self.board[y][x] *= 2
-                        self.score += self.board[y][x]
-                        self.board[old_y][old_x] = None
-                        change = True
-                        break
-                    else:
-                        break
-        return change
 
     def _has_space(self):
-        for i in range(len(self.board)):
+        for i, _ in enumerate(self.board):
             if None in self.board[i]:
                 return True
         return False
@@ -122,9 +126,9 @@ class Game:
 
     def _get_empty_cell_coordinates(self):
         coordinates = []
-        for i in range(len(self.board)):
-            for j in range(len(self.board[i])):
-                if self.board[i][j] is None:
+        for i, _ in enumerate(self.board):
+            for j, elem in enumerate(self.board[i]):
+                if elem is None:
                     coordinates.append([i, j])
 
         return coordinates
