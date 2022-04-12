@@ -10,6 +10,8 @@ directions = {
 class Game:
     def __init__(self):
         self.board = create_empty_board()
+        self._insert_new_cell()
+        self._insert_new_cell()
         self.score = 0
 
     def get_gamestate(self):
@@ -22,15 +24,11 @@ class Game:
         if direction not in directions:
             return False
 
-        dir = directions[direction]
-        new_board = create_empty_board()
-
-        for i in range(len(self.board)):
-            for j in range(len(self.board[i])):
-                pass
-        
-                
-        self._insert_new_cell()
+        change = self._move_everything(direction)
+        if change:
+            return self._insert_new_cell()
+        else:
+            return False
 
     def _insert_new_cell(self):
         if not self._has_space():
@@ -38,15 +36,82 @@ class Game:
 
         rand_int = random.randint(1, 2)
         num = 0
-        if rand_int == 1: num = 2 
-        else: num = 4
+        if rand_int == 1:
+            num = 2
+        else:
+            num = 4
 
         empty_cells = self._get_empty_cell_coordinates()
         next_one = random.randint(0, len(empty_cells)-1)
         self.board[empty_cells[next_one][0]][empty_cells[next_one][1]] = num
 
-        return self.board
+        return True
 
+    def _move_everything(self, direction):
+        start_y = 0
+        start_x = 0
+        end_y = 0
+        end_x = 0
+        step_y = 0
+        step_x = 0
+
+        if direction == "up":
+            start_y = 1
+            start_x = 0
+            end_y = len(self.board)
+            end_x = len(self.board[0])
+            step_y = 1
+            step_x = 1
+        elif direction == "down":
+            start_y = len(self.board)-2
+            start_x = 0
+            end_y = -1
+            end_x = len(self.board[0])
+            step_y = -1
+            step_x = 1
+        elif direction == "right":
+            start_y = 0
+            start_x = len(self.board[0])-2
+            end_y = len(self.board)
+            end_x = -1
+            step_y = 1
+            step_x = -1
+        elif direction == "left":
+            start_y = 0
+            start_x = 1
+            end_y = len(self.board)
+            end_x = len(self.board[0])
+            step_y = 1
+            step_x = 1
+
+        change = False
+        for i in range(start_y, end_y, step_y):
+            for j in range(start_x, end_x, step_x):
+                if self.board[i][j] is None:
+                    continue
+
+                y = i
+                x = j
+                while True:
+                    old_y = y
+                    old_x = x
+                    y += directions[direction][0]
+                    x += directions[direction][1]
+                    if y < 0 or y> len(self.board)-1 or x < 0 or x > len(self.board[0])-1:
+                        break
+                    if self.board[y][x] is None:
+                        self.board[y][x] = self.board[old_y][old_x]
+                        self.board[old_y][old_x] = None
+                        change = True
+                    elif self.board[y][x] == self.board[old_y][old_x]:
+                        self.board[y][x] *= 2
+                        self.score += self.board[y][x]
+                        self.board[old_y][old_x] = None
+                        change = True
+                        break
+                    else:
+                        break
+        return change
 
     def _has_space(self):
         for i in range(len(self.board)):
@@ -63,8 +128,6 @@ class Game:
                     coordinates.append([i, j])
 
         return coordinates
-    
-
 
 def create_empty_board():
     return [[None]*4 for _ in range(4)]

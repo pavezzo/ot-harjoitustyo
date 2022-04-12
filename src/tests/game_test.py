@@ -18,3 +18,19 @@ class TestGame(unittest.TestCase):
                 break
 
         self.assertEqual(all_filled, True)
+
+    def test_new_keypress_accepts_only_valid_presses(self):
+        result = self.game.new_keypress("123")
+        self.assertEqual(result, False)
+        result = self.game.new_keypress("updown")
+        self.assertEqual(result, False)
+
+    def test_game_accepts_valid_keypresses(self):
+        result = self.game.new_keypress("up")
+        self.assertEqual(result, True)
+        result = self.game.new_keypress("left")
+        self.assertEqual(result, True)
+        result = self.game.new_keypress("down")
+        self.assertEqual(result, True)
+        result = self.game.new_keypress("right")
+        self.assertEqual(result, True)
