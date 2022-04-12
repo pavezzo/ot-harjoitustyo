@@ -79,41 +79,26 @@ class Game:
         return change
 
     def _calc_move_params(self, direction):
-        start_y = 0
-        start_x = 0
-        end_y = 0
-        end_x = 0
-        step_y = 0
-        step_x = 0
+        start_y, start_x, end_y, end_x, step_y, step_x = 0, 0, 0, len(self.board[0]), 0, 1
 
         if direction == "up":
             start_y = 1
-            start_x = 0
             end_y = len(self.board)
-            end_x = len(self.board[0])
             step_y = 1
-            step_x = 1
         elif direction == "down":
             start_y = len(self.board)-2
-            start_x = 0
             end_y = -1
-            end_x = len(self.board[0])
             step_y = -1
-            step_x = 1
         elif direction == "right":
-            start_y = 0
             start_x = len(self.board[0])-2
             end_y = len(self.board)
             end_x = -1
             step_y = 1
             step_x = -1
         elif direction == "left":
-            start_y = 0
             start_x = 1
             end_y = len(self.board)
-            end_x = len(self.board[0])
             step_y = 1
-            step_x = 1
         return (start_y, start_x, end_y, end_x, step_y, step_x)
 
 
