@@ -5,17 +5,14 @@ from logic.game import Game
 
 
 class Game_view:
-    def __init__(self):
-        pygame.init()
-        self.width = 2000
-        self.height = 2000
-        self.game_display = pygame.display.set_mode([self.width, self.height])
-        pygame.display.set_caption("2048")
+    def __init__(self, display, font, width, height):
         self.game = Game()
-        self.font = pygame.font.SysFont(None, 96)
-        self.clock = pygame.time.Clock()
+        self.game_display = display
+        self.font = font
+        self.width = width
+        self.height = height
 
-    def _event_handler(self):
+    def event_handler(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -30,7 +27,7 @@ class Game_view:
                 if event.key == pygame.K_LEFT:
                     self.game.new_keypress("left")
     
-    def _update_game(self):
+    def update_game(self):
         self.game_display.fill((0, 0, 0))
         state = self.game.get_gamestate()
 
@@ -45,11 +42,5 @@ class Game_view:
         score_text = self.font.render("Score: " + str(score), True, (0, 0, 0))
         self.game_display.blit(score_text, (0, 0))
 
-    def main_loop(self):
-        while True:
-            self._event_handler()
-            self._update_game()
-            pygame.display.update()
-            self.clock.tick(30)
 
     

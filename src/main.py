@@ -1,8 +1,8 @@
-from ui.game_view import Game_view
+from ui.ui import Ui
 
 def main():
-    game_view = Game_view()
-    game_view.main_loop()
+    ui = Ui()
+    ui.main_loop()
 
 
 if __name__ == "__main__":
