@@ -11,6 +11,8 @@ class Game_view:
         self.font = font
         self.width = width
         self.height = height
+        self.text_padding_width = self.width//8 - 15
+        self.text_padding_height = self.height//8 - 15
 
     def event_handler(self):
         for event in pygame.event.get():
@@ -26,8 +28,13 @@ class Game_view:
                     self.game.new_keypress("right")
                 if event.key == pygame.K_LEFT:
                     self.game.new_keypress("left")
-    
+                if event.key == pygame.K_SPACE:
+                    self.game.restart_game()
+
     def update_game(self):
+        if not self.game.can_continue():
+            return self.game_over()
+
         self.game_display.fill((0, 0, 0))
         state = self.game.get_gamestate()
 
@@ -36,11 +43,15 @@ class Game_view:
                 pygame.draw.rect(self.game_display, (255, 255, 255), (10+j*(self.width//4), 10+i*(self.height//4), self.width//4-25, self.height//4-25))
                 if state[i][j] is not None:
                     text = self.font.render(str(state[i][j]), True, (0, 0, 0))
-                    self.game_display.blit(text, (250+j*self.width//4, 250+i*self.height//4))
+                    self.game_display.blit(text, (self.text_padding_width+j*self.width//4, self.text_padding_height+i*self.height//4))
 
         score = self.game.get_score()
         score_text = self.font.render("Score: " + str(score), True, (0, 0, 0))
         self.game_display.blit(score_text, (0, 0))
 
+    def game_over(self):
+        #self.game_display.fill((255, 255, 255))
 
-    
+        game_over_text = self.font.render("Game over", True, (139, 0, 0))
+        game_over_rect = game_over_text.get_rect(center=(self.width//2, self.height//2))
+        self.game_display.blit(game_over_text, game_over_rect) 

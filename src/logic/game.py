@@ -20,6 +20,31 @@ class Game:
     def get_score(self):
         return self.score
 
+    def set_board(self, board):
+        self.board = board
+
+    def can_continue(self):
+        if self._has_space():
+            return True
+
+        for i, el in enumerate(self.board):
+            for j, num in enumerate(el):
+                for dir in directions:
+                    y = i + directions[dir][0]
+                    x = j + directions[dir][1]
+                    if y < 0 or y > len(self.board)-1 or x < 0 or x > len(el) - 1:
+                        continue
+                    if num == self.board[y][x]:
+                        return True
+
+        return False
+
+    def restart_game(self):
+        self.board = create_empty_board()
+        self.score = 0
+        self._insert_new_cell()
+        self._insert_new_cell()
+
     def new_keypress(self, direction):
         if direction not in directions:
             return False
@@ -48,7 +73,7 @@ class Game:
 
     def _move_everything(self, direction):
         start_y, start_x, end_y, end_x, step_y, step_x = self._calc_move_params(direction)
-
+        ignore = []
         change = False
         for i in range(start_y, end_y, step_y):
             for j in range(start_x, end_x, step_x):
@@ -68,11 +93,15 @@ class Game:
                         self.board[y][x] = self.board[old_y][old_x]
                         self.board[old_y][old_x] = None
                         change = True
-                    elif self.board[y][x] == self.board[old_y][old_x]:
+                        if (old_y, old_x) in ignore:
+                            ignore.append((y, x))
+                            ignore.remove((old_y, old_x))
+                    elif self.board[y][x] == self.board[old_y][old_x] and (y, x) not in ignore:
                         self.board[y][x] *= 2
                         self.score += self.board[y][x]
                         self.board[old_y][old_x] = None
                         change = True
+                        ignore.append((y, x))
                         break
                     else:
                         break

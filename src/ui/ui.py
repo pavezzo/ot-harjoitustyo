@@ -9,11 +9,12 @@ class Ui:
     def __init__(self, current_view="menu"):
         pygame.init()
         self.current_view = current_view
-        self.width = 2000
-        self.height = 2000
+        self.width = 1000
+        self.height = 1000
         self.game_display = pygame.display.set_mode([self.width, self.height])
         pygame.display.set_caption("2048")
-        self.font = pygame.font.SysFont(None, 96)
+        self.font_size = self.width // 20
+        self.font = pygame.font.SysFont(None, self.font_size)
         self.game_view = Game_view(self.game_display, self.font, self.width, self.height)
         self.clock = pygame.time.Clock()
         self.menu = Menu_view(self.game_display, self.font, self.width, self.height)
