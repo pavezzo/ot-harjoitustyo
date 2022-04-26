@@ -4,7 +4,7 @@ from pygame.locals import *
 from logic.game import Game
 
 
-class Game_view:
+class GameView:
     def __init__(self, display, font, width, height):
         self.game = Game()
         self.game_display = display
@@ -15,6 +15,7 @@ class Game_view:
         self.text_padding_height = self.height//8 - 15
         self.game_over = False
         self.save_score_button = None
+        self.restart_button = None
         self.current_state = "game"
 
     def event_handler(self):
@@ -37,6 +38,9 @@ class Game_view:
             if event.type == pygame.MOUSEBUTTONDOWN and self.game_over:
                 if self.save_score_button.collidepoint(pygame.mouse.get_pos()):
                     self.current_state = "save_score"
+                if self.restart_button.collidepoint(pygame.mouse.get_pos()):
+                    self.game.restart_game()
+                    self.game_over = False
 
     def update_game(self):
         if self.game_over:
@@ -63,10 +67,19 @@ class Game_view:
     def game_over_view(self):
         game_over_text = self.font.render("Game over", True, (255, 0, 0))
         game_over_rect = game_over_text.get_rect(center=(self.width//2, self.height//2))
+        
+        restart_game_text = self.font.render("Restart game", True, (255, 0, 0))
+        restart_game_button = restart_game_text.get_rect(center=(self.width//2, self.height//2+game_over_rect.height))
+        self.restart_button = restart_game_button
+        pygame.draw.rect(self.game_display, (0, 0, 0), restart_game_button)
+
         save_score_text = self.font.render("Save score", True, (255, 0, 0))
-        save_score_button = save_score_text.get_rect(center=(self.width//2, self.height//2+game_over_rect.height))
+        save_score_button = save_score_text.get_rect(center=(self.width//2, self.height//2+game_over_rect.height+restart_game_button.height))
         self.save_score_button = save_score_button
-        self.game_display.blit(game_over_text, game_over_rect) 
+        pygame.draw.rect(self.game_display, (0, 0, 0), save_score_button)
+       
+        self.game_display.blit(game_over_text, game_over_rect)
+        self.game_display.blit(restart_game_text, restart_game_button) 
         self.game_display.blit(save_score_text, save_score_button)
 
     def check_state(self):

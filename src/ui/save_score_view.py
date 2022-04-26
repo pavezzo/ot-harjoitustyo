@@ -57,6 +57,11 @@ class SaveScoreView:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
                     self.username = self.username[:-1]
+                elif event.key == pygame.K_RETURN:
+                    if self.username != "":
+                        self.highscore_repository.new_score(self.score, self.username)
+                        self.current_state = "menu"
+                        self.usernmae = ""
                 else:
                     self.username += event.unicode
 
@@ -65,3 +70,4 @@ class SaveScoreView:
                     if self.username != "":
                         self.highscore_repository.new_score(self.score, self.username)
                         self.current_state = "menu"
+                        self.username = ""

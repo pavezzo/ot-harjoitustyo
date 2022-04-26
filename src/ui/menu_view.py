@@ -3,7 +3,7 @@ import sys
 from pygame.locals import *
 
 
-class Menu_view:
+class MenuView:
     def __init__(self, display, font, width, height):
         self.display = display
         self.font = font
@@ -15,10 +15,6 @@ class Menu_view:
 
     def draw_menu(self):
         self.display.fill((255, 255, 255))
-        #new_game_button = pygame.draw.rect(self.display, (139, 0, 0), center=(self.width//2, self.height//2), 400, 200)
-        #self.new_game_button = new_game_button
-        #new_game_text = self.font.render("New game", True, (0, 0, 0))
-        #self.display.blit(new_game_text, (self.width//2, self.height//2))
         new_game_text = self.font.render("New game", True, (255, 255, 255))
         new_game_button = new_game_text.get_rect(center=(self.width//2, self.height//2))
         self.new_game_button = new_game_button

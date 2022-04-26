@@ -11,7 +11,11 @@ Sovellus on minun versio suositusta 2048 pelistä.
 ```bash
 poetry install
 ```
-2. Käynnistä peli:
+2. Alusta tietokanta:
+```bash
+poetry run invoke initialize
+```
+3. Käynnistä peli:
 ```bash
 poetry run invoke start
 ```

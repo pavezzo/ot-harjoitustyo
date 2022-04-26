@@ -132,8 +132,8 @@ class Game:
 
 
     def _has_space(self):
-        for i, _ in enumerate(self.board):
-            if None in self.board[i]:
+        for i, row in enumerate(self.board):
+            if None in row:
                 return True
         return False
 
