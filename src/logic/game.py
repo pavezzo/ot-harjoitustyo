@@ -27,12 +27,12 @@ class Game:
         if self._has_space():
             return True
 
-        for i, el in enumerate(self.board):
-            for j, num in enumerate(el):
-                for dir in directions:
-                    y = i + directions[dir][0]
-                    x = j + directions[dir][1]
-                    if y < 0 or y > len(self.board)-1 or x < 0 or x > len(el) - 1:
+        for i, arr in enumerate(self.board):
+            for j, num in enumerate(arr):
+                for direction in directions:
+                    y = i + directions[direction][0]
+                    x = j + directions[direction][1]
+                    if y < 0 or y > len(self.board)-1 or x < 0 or x > len(arr) - 1:
                         continue
                     if num == self.board[y][x]:
                         return True
@@ -132,7 +132,7 @@ class Game:
 
 
     def _has_space(self):
-        for i, row in enumerate(self.board):
+        for _, row in enumerate(self.board):
             if None in row:
                 return True
         return False

@@ -34,3 +34,11 @@ class TestGame(unittest.TestCase):
         self.assertEqual(result, True)
         result = self.game.new_keypress("right")
         self.assertEqual(result, True)
+
+    def test_can_continue_returns_false_if_cant_continue(self):
+        self.game.set_board([[2,4,8,16], [16,8,4,2], [2,4,8,16], [16,8,4,2]])
+        self.assertEqual(self.game.can_continue(), False)
+
+    def test_can_continue_return_true_if_can_continue(self):
+        self.game.set_board([[2, 2, 4, 8], [16, 8, 4, 2], [2, 4, 8, 16], [16, 8, 4, 2]])
+        self.assertEqual(self.game.can_continue(), True)

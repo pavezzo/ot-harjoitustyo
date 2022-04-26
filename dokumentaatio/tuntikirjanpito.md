@@ -8,4 +8,5 @@
 | 12.4. | 3    | pygame tutustuminen, ui:n toteutusta, pylint |
 | 21.4. | 2    | tietokantalogikaan alustaminen |
 | 23.4. | 4    | ui:n muutoksia, näkymien lisäämistä |
-| yht.	| 13   | |
+| 26.4. | 2    | ui:n kehittämistä, testejä ja sekvenssikaavio |
+| yht.	| 15   | |

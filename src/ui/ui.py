@@ -6,7 +6,6 @@ from ui.menu_view import MenuView
 from ui.highscore_view import HighscoreView
 from ui.save_score_view import SaveScoreView
 
-
 class Ui:
     def __init__(self, current_view="menu", width=1000, height=1000):
         pygame.init()
@@ -43,7 +42,6 @@ class Ui:
             if self.current_view == "game":
                 self.game_view.event_handler()
                 self.game_view.update_game()
-
                 if self.game_view.check_state() != "game":
                     self.save_score_view.set_score(self.game_view.get_score())
                     self.current_view = self.game_view.check_state()
