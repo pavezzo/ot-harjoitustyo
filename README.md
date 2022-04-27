@@ -1,5 +1,5 @@
 # Ohjelmistotekniikan harjoitustyö: 2048 peli
-Sovellus on minun versio suositusta 2048 pelistä. Peliä pelataan nuolinäppäimillä.
+Sovellus on minun versio suositusta 2048 pelistä. Peliä pelataan nuolinäppäimillä. Vaihda main.py UI width ja height sopivaksi omalle näytölle.
 ## Dokumentaatio
 [tuntikirjanpito](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)\
 [vaatimusmäärittely](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)\
