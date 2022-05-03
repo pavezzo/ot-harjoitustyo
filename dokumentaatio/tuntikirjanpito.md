@@ -9,4 +9,5 @@
 | 21.4. | 2    | tietokantalogikaan alustaminen |
 | 23.4. | 4    | ui:n muutoksia, näkymien lisäämistä |
 | 26.4. | 2    | ui:n kehittämistä, testejä ja sekvenssikaavio |
-| yht.	| 15   | |
+| 3.5.  | 5    | docstring, arkkitehtuurikuvausta, käyttöohje, värien lisääminen ruutuihin ja siistimistä |
+| yht.	| 20   | |

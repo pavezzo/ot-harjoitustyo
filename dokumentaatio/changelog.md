@@ -9,3 +9,6 @@
 - Lisätty ja aloitettu Menu, Highsore ja SaveScore luokat
 - Lisätty tietokantalogiikkaa
 - Toteutettu alustava tulosten tallentaminen
+## Viikko 6
+- UI laskee pelin resoluution näytön koosta
+- Lisätty alustavat värit laattoihin

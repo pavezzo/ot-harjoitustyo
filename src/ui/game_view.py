@@ -3,6 +3,22 @@ import sys
 from pygame.locals import *
 from logic.game import Game
 
+colors = {
+    "None": pygame.colordict.THECOLORS['white'],
+    "2": pygame.colordict.THECOLORS['maroon4'],
+    "4": pygame.colordict.THECOLORS['tan1'],
+    "8": pygame.colordict.THECOLORS['springgreen'],
+    "16": pygame.colordict.THECOLORS['slateblue'],
+    "32": pygame.colordict.THECOLORS['sienna'],
+    "64": pygame.colordict.THECOLORS['seagreen'],
+    "128": pygame.colordict.THECOLORS['royalblue4'],
+    "256": pygame.colordict.THECOLORS['rosybrown1'],
+    "512": pygame.colordict.THECOLORS['red'],
+    "1024": pygame.colordict.THECOLORS['purple'],
+    "2048": pygame.colordict.THECOLORS['plum4'],
+    "4096": pygame.colordict.THECOLORS['peru'],
+    "8192": pygame.colordict.THECOLORS['orangered']
+}
 
 class GameView:
     def __init__(self, display, font, width, height):
@@ -53,8 +69,7 @@ class GameView:
 
         for i in range(len(state)):
             for j in range(len(state[i])):
-                #pygame.draw.rect(self.game_display, (255, 255, 255), (10+j*(self.width//4), 10+i*(self.height//4), self.width//4-25, self.height//4-25))
-                pygame.draw.rect(self.game_display, (255, 255, 255), ((self.box_padding+j*(self.width//4), self.box_padding+i*(self.height//4)), self.box_size))
+                pygame.draw.rect(self.game_display, colors[str(state[i][j])], ((self.box_padding+j*(self.width//4), self.box_padding+i*(self.height//4)), self.box_size))
                 if state[i][j] is not None:
                     text = self.font.render(str(state[i][j]), True, (0, 0, 0))
                     self.game_display.blit(text, (self.text_padding_width+j*self.width//4, self.text_padding_height+i*self.height//4))
