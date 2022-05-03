@@ -4,7 +4,8 @@ Sovellus on minun versio suositusta 2048 pelistä. Peliä pelataan nuolinäppäi
 [tuntikirjanpito](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)\
 [vaatimusmäärittely](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)\
 [changelog](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)\
-[arkkitehtuurikuvaus](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+[arkkitehtuurikuvaus](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)\
+[käyttöohje](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 ## Asennus
 1. Asenna riippuvuudet:
