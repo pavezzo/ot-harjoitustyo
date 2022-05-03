@@ -11,8 +11,10 @@ class GameView:
         self.font = font
         self.width = width
         self.height = height
-        self.text_padding_width = self.width//8 - 15
-        self.text_padding_height = self.height//8 - 15
+        self.box_padding = self.width // 200
+        self.text_padding_width = self.width//8 - self.box_padding
+        self.text_padding_height = self.height//8 - self.box_padding
+        self.box_size = (self.width//4 - self.width//80, self.height//4 - self.height//80)
         self.game_over = False
         self.save_score_button = None
         self.restart_button = None
@@ -51,14 +53,15 @@ class GameView:
 
         for i in range(len(state)):
             for j in range(len(state[i])):
-                pygame.draw.rect(self.game_display, (255, 255, 255), (10+j*(self.width//4), 10+i*(self.height//4), self.width//4-25, self.height//4-25))
+                #pygame.draw.rect(self.game_display, (255, 255, 255), (10+j*(self.width//4), 10+i*(self.height//4), self.width//4-25, self.height//4-25))
+                pygame.draw.rect(self.game_display, (255, 255, 255), ((self.box_padding+j*(self.width//4), self.box_padding+i*(self.height//4)), self.box_size))
                 if state[i][j] is not None:
                     text = self.font.render(str(state[i][j]), True, (0, 0, 0))
                     self.game_display.blit(text, (self.text_padding_width+j*self.width//4, self.text_padding_height+i*self.height//4))
 
         score = self.game.get_score()
         score_text = self.font.render("Score: " + str(score), True, (0, 0, 0))
-        self.game_display.blit(score_text, (0, 0))
+        self.game_display.blit(score_text, (self.box_padding, self.box_padding))
 
         if not self.game.can_continue():
             self.game_over = True
