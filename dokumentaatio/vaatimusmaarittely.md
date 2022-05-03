@@ -15,6 +15,5 @@ Sovellusta käyttää pelaaja/pelaajat.
 - Aiempia tuloksia voidaan tarkastella: tehty
 
 ## Lisättävää
-- Värikoodatut ruudut
+- Värikoodatut ruudut: tehty
 - Mahdollisuus valita itse ruudukon koko
-- Yleisesti tyylikkäämpi ulkoasu
