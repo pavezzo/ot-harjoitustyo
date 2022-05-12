@@ -34,11 +34,12 @@ class HighscoreView:
             text_rect = text.get_rect(center=(self._width//2, self._height//10+i*self._height//20))
             self._display.blit(text, text_rect)
 
-        back_to_menu_text = self._font.render("Back to menu", True, (0, 0, 0))
+        back_to_menu_text = self._font.render("Back to menu", True, (255, 255, 255))
         back_to_menu_button = back_to_menu_text.get_rect()
-        back_to_menu_button.left = self._width//20
+        back_to_menu_button.left = 0
         back_to_menu_button.top = 0
         self._back_to_menu_button = back_to_menu_button
+        pygame.draw.rect(self._display, (0, 0, 0), back_to_menu_button, border_radius=5)
         self._display.blit(back_to_menu_text, back_to_menu_button)
 
     def event_handler(self):

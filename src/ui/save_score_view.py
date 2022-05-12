@@ -55,6 +55,7 @@ class SaveScoreView:
         save_text = self._font.render("Save", True, (255, 0, 0))
         save_button = save_text.get_rect(center=(self._width//2, username_rect.top+username_rect.height+username_rect.height//2))
         self._save_button = save_button
+        pygame.draw.rect(self._display, (0, 0, 0), save_button, border_radius=5)
 
         self._display.blit(score_text, score_rect)
         self._display.blit(prompt_text, prompt_rect)
