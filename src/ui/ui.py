@@ -75,11 +75,22 @@ class Ui:
     def _set_window_size(self):
         """Funktio joka laskee screeninfo-kirjaston avulla sopivan koon ohjelman ikkunalle.
         """
+        found_primary = False
         for m in get_monitors():
             if m.is_primary:
+                found_primary = True
                 if m.width > m.height:
                     self.width = m.height // 2
                     self.height = m.height // 2
                 else:
                     self.width = m.width // 2
                     self.height = m.width //2
+        
+        if not found_primary:
+            monitor = get_monitors()[0]
+            if monitor.width > monitor.height:
+                self.width = monitor.height // 2
+                self.height = monitor.height // 2
+            else:
+                self.width = monitor.width // 2
+                self.height = monitor.width // 2

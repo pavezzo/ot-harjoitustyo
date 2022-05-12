@@ -4,43 +4,68 @@ from pygame.locals import *
 from repositories.highscores_repository import HighscoresRepository
 
 class HighscoreView:
+    """Luokka, joka hallitsee huipputulosten näyttämisen
+    """
     def __init__(self, display, width, height, font):
-        self.display = display
-        self.width = width
-        self.height = height
-        self.font = font
-        self.highscores_repository = HighscoresRepository()
-        self.back_to_menu_button = None
+        """Luokan konstruktori, joka alustaa näyttämiseen tarvittavia muuttujia
+
+        Args:
+            display : pygame display objekti, jolla piirretään ruudulle
+            width (kokonaisluku): peli-ikkunan leveys
+            height (kokonaisluku): peli-ikkunan korkeus
+            font : pygame font objekti, jolla hallitaan ruudulle kirjoittamista
+        """
         self.state = "highscores"
 
-    def draw_highscore_view(self):
-        self.display.fill((255, 255, 255))
-        highscores = self.highscores_repository.get_top_10()
-        for i, row in enumerate(highscores):
-            text = self.font.render(row[0] + " " + str(row[1]), True, (0, 0, 0))
-            text_rect = text.get_rect(center=(self.width//2, self.height//10+i*self.height//20))
-            self.display.blit(text, text_rect)
+        self._display = display
+        self._width = width
+        self._height = height
+        self._font = font
+        self._highscores_repository = HighscoresRepository()
+        self._back_to_menu_button = None
 
-        back_to_menu_text = self.font.render("Back to menu", True, (0, 0, 0))
+    def draw_highscore_view(self):
+        """Hallitsee huipputulosten piirtämisen peli-ikkunaan
+        """
+        self._display.fill((255, 255, 255))
+        highscores = self._highscores_repository.get_top_10()
+        for i, row in enumerate(highscores):
+            text = self._font.render(row[0] + " " + str(row[1]), True, (0, 0, 0))
+            text_rect = text.get_rect(center=(self._width//2, self._height//10+i*self._height//20))
+            self._display.blit(text, text_rect)
+
+        back_to_menu_text = self._font.render("Back to menu", True, (0, 0, 0))
         back_to_menu_button = back_to_menu_text.get_rect()
-        back_to_menu_button.left = self.width//20
+        back_to_menu_button.left = self._width//20
         back_to_menu_button.top = 0
-        self.back_to_menu_button = back_to_menu_button
-        self.display.blit(back_to_menu_text, back_to_menu_button)
+        self._back_to_menu_button = back_to_menu_button
+        self._display.blit(back_to_menu_text, back_to_menu_button)
 
     def event_handler(self):
+        """Hallitseen käyttäjän antamat syötteet
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
             
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if self.back_to_menu_button.collidepoint(pygame.mouse.get_pos()):
+                if self._back_to_menu_button.collidepoint(pygame.mouse.get_pos()):
                     self.state = "menu"
 
     def set_state(self, state):
+        """Asettaa näkymän uuden tilan
+
+        Args:
+            state (merkkijono): uusi tila
+        """
         self.state = state
 
     def check_state(self):
+        """Palauttaa näkymän tämänhetkisen tilan
+
+        Returns:
+            merkkijono: tämänhetkinen tila
+        """
         return self.state
             
