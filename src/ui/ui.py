@@ -100,5 +100,5 @@ class Ui:
                 self.width = monitor.width // 2
                 self.height = monitor.width // 2
 
-        self.width += self.width // 4
-        self.height += self.height // 4
+        self.width += self.width // 2
+        self.height += self.height // 2
