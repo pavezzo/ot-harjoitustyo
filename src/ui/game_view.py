@@ -99,10 +99,12 @@ class GameView:
 
         for i in range(len(state)):
             for j in range(len(state[i])):
-                pygame.draw.rect(self._display, colors[str(state[i][j])], ((self._box_padding+j*(self._width//self._game_size), self._box_padding+i*(self._height//self._game_size)), self._box_size))
+                cell = pygame.draw.rect(self._display, colors[str(state[i][j])], ((self._box_padding+j*(self._width//self._game_size), self._box_padding+i*(self._height//self._game_size)), self._box_size))
                 if state[i][j] is not None:
                     text = self._font.render(str(state[i][j]), True, (0, 0, 0))
-                    self._display.blit(text, (self._text_padding_width+j*self._width//self._game_size, self._text_padding_height+i*self._height//self._game_size))
+                    text_size = self._font.size(str(state[i][j]))
+                    #self._display.blit(text, (self._text_padding_width+j*self._width//self._game_size, self._text_padding_height+i*self._height//self._game_size))
+                    self._display.blit(text, (cell.left+((cell.width-text_size[0])//2), cell.top+((cell.height-text_size[1])//2)))
 
         score = self._game.get_score()
         score_text = self._font.render("Score: " + str(score), True, (0, 0, 0))
