@@ -41,6 +41,11 @@ class Ui:
             if self.current_view == "menu":
                 self.menu_view.draw_menu()
                 self.menu_view.event_handler()
+                if self.menu_view.new_game_size:
+                    self.game_view.set_game_size(self.menu_view.game_size)
+                    self.save_score_view.set_game_size(self.menu_view.game_size)
+                    self.menu_view.new_game_size = False
+
                 if self.menu_view.check_state() != "menu":
                     self.current_view = self.menu_view.check_state()
                     self.menu_view.set_state("menu")

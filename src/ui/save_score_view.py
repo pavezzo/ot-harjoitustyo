@@ -18,6 +18,7 @@ class SaveScoreView:
         self.score = None
         self.username = ""
         self.current_state = "save_score"
+        self.game_size = 4
 
         self._display = display
         self._width = width
@@ -25,6 +26,14 @@ class SaveScoreView:
         self._font = font
         self._highscore_repository = HighscoresRepository()
         self._save_button = None
+
+    def set_game_size(self, size):
+        """Asettaa pelin koon tallentamista varten
+
+        Args:
+            size (kokonaisluku): pelin koko
+        """
+        self.game_size = size
 
     def set_score(self, score):
         """Asettaa käyttäjän pelituksen näkymään
@@ -90,15 +99,15 @@ class SaveScoreView:
                     self.username = self.username[:-1]
                 elif event.key == pygame.K_RETURN:
                     if self.username != "":
-                        self._highscore_repository.new_score(self.score, self.username)
+                        self._highscore_repository.new_score(self.score, self.username, self.game_size)
                         self.current_state = "menu"
-                        self.usernmae = ""
+                        self.username = ""
                 else:
                     self.username += event.unicode
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if self._save_button.collidepoint(pygame.mouse.get_pos()):
                     if self.username != "":
-                        self._highscore_repository.new_score(self.score, self.username)
+                        self._highscore_repository.new_score(self.score, self.username, self.game_size)
                         self.current_state = "menu"
                         self.username = ""

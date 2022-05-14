@@ -30,7 +30,7 @@ class HighscoreView:
         self._display.fill((255, 255, 255))
         highscores = self._highscores_repository.get_top_10()
         for i, row in enumerate(highscores):
-            text = self._font.render(row[0] + " " + str(row[1]), True, (0, 0, 0))
+            text = self._font.render(str(row[2]) + "x" + str(row[2]) + " grid: " + row[0] + " " + str(row[1]), True, (0, 0, 0))
             text_rect = text.get_rect(center=(self._width//2, self._height//10+i*self._height//20))
             self._display.blit(text, text_rect)
 

@@ -8,7 +8,7 @@ class HighscoresRepository:
         """
         self._connection = get_db_connection()
 
-    def new_score(self, score, username):
+    def new_score(self, score, username, size):
         """Lisää uuden tuloksen tietokantaan
 
         Args:
@@ -17,8 +17,8 @@ class HighscoresRepository:
         """
         cursor = self._connection.cursor()
         cursor.execute(
-            'insert into highscores (username, score) values (?, ?)',
-            (username, score)
+            'insert into highscores (username, score, size) values (?, ?, ?)',
+            (username, score, size)
         )
         self._connection.commit()
 

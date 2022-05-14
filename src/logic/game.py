@@ -13,6 +13,7 @@ class Game:
     def __init__(self):
         """Luokan konstruktori, jossa luodaan uusi ruudukko ja alustetaan pisteet.
         """
+        self.game_size = 4
         self.board = self._create_empty_board()
         self._insert_new_cell()
         self._insert_new_cell()
@@ -33,6 +34,14 @@ class Game:
             kokonaisluku: pelin nykyinen pistemäärä
         """
         return self.score
+
+    def new_game(self, size):
+        self.score = 0
+        self.game_size = size
+        self.board = self._create_empty_board()
+        self._insert_new_cell()
+        self._insert_new_cell()
+
 
     def set_board(self, board):
         """Asettaa pelin ruudukon halutunlaiseksi. Käytetään testaamiseen.
@@ -236,4 +245,4 @@ class Game:
         return coordinates
 
     def _create_empty_board(self):
-        return [[None]*4 for _ in range(4)]
+        return [[None]*self.game_size for _ in range(self.game_size)]

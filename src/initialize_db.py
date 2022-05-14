@@ -8,7 +8,8 @@ def create_tables():
     cursor.execute('''
         create table highscores (
             username text,
-            score int
+            score int,
+            size int
         );
     ''')
 

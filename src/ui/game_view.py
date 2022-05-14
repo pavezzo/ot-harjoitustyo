@@ -37,17 +37,28 @@ class GameView:
         self.current_state = "game"
 
         self._game = Game()
+        self._game_size = 4
         self._display = display
         self._font = font
         self._width = width
         self._height = height
-        self._box_padding = self._width // 200
-        self._text_padding_width = self._width//8 - self._box_padding
-        self._text_padding_height = self._height//8 - self._box_padding
-        self._box_size = (self._width//4 - self._width//80, self._height//4 - self._height//80)
+        self._box_padding = None
+        self._text_padding_width = None
+        self._text_padding_height = None
+        self._box_size = None
+        self.set_game_size()
         self._game_over = False
+        self._main_menu_button = None
         self._save_score_button = None
         self._restart_button = None
+
+    def set_game_size(self, size=4):
+        self._game_size = size
+        self._game.new_game(size)
+        self._box_padding = self._width // (self._game_size * 40)
+        self._text_padding_width = self._width//(2*self._game_size) - self._box_padding
+        self._text_padding_height = self._height//(2*self._game_size) - self._box_padding
+        self._box_size = (self._width//self._game_size - (2*self._box_padding), self._height//self._game_size - (2*self._box_padding))
 
     def event_handler(self):
         """Hallinoi käyttäjän syötettä ja välittää sen pelistä huolehtivalle luokalle
@@ -69,6 +80,8 @@ class GameView:
                     self._game.restart_game()
                     self._game_over = False
             if event.type == pygame.MOUSEBUTTONDOWN and self._game_over:
+                if self._main_menu_button.collidepoint(pygame.mouse.get_pos()):
+                    self.current_state = "menu"
                 if self._save_score_button.collidepoint(pygame.mouse.get_pos()):
                     self.current_state = "save_score"
                 if self._restart_button.collidepoint(pygame.mouse.get_pos()):
@@ -86,10 +99,10 @@ class GameView:
 
         for i in range(len(state)):
             for j in range(len(state[i])):
-                pygame.draw.rect(self._display, colors[str(state[i][j])], ((self._box_padding+j*(self._width//4), self._box_padding+i*(self._height//4)), self._box_size))
+                pygame.draw.rect(self._display, colors[str(state[i][j])], ((self._box_padding+j*(self._width//self._game_size), self._box_padding+i*(self._height//self._game_size)), self._box_size))
                 if state[i][j] is not None:
                     text = self._font.render(str(state[i][j]), True, (0, 0, 0))
-                    self._display.blit(text, (self._text_padding_width+j*self._width//4, self._text_padding_height+i*self._height//4))
+                    self._display.blit(text, (self._text_padding_width+j*self._width//self._game_size, self._text_padding_height+i*self._height//self._game_size))
 
         score = self._game.get_score()
         score_text = self._font.render("Score: " + str(score), True, (0, 0, 0))
@@ -103,19 +116,25 @@ class GameView:
         """Huolehtii pelin loppuessa ruudukon päälle piirrettävästä loppuvalikosta
         """
         game_over_text = self._font.render("Game over", True, (255, 0, 0))
-        game_over_rect = game_over_text.get_rect(center=(self._width//2, self._height//2))
-        
+        game_over_rect = game_over_text.get_rect(center=(self._width//2, self._height//2.5))
+
+        main_menu_text = self._font.render("Main menu", True, (255, 0 , 0))
+        main_menu_button = main_menu_text.get_rect(center=(self._width//2, game_over_rect.top + 1.6*game_over_rect.height))
+        pygame.draw.rect(self._display, (0, 0, 0), main_menu_button)        
+        self._main_menu_button = main_menu_button
+
         restart_game_text = self._font.render("Restart game", True, (255, 0, 0))
-        restart_game_button = restart_game_text.get_rect(center=(self._width//2, self._height//2+game_over_rect.height))
+        restart_game_button = restart_game_text.get_rect(center=(self._width//2, main_menu_button.top + 1.6*main_menu_button.height))
         self._restart_button = restart_game_button
         pygame.draw.rect(self._display, (0, 0, 0), restart_game_button)
 
         save_score_text = self._font.render("Save score", True, (255, 0, 0))
-        save_score_button = save_score_text.get_rect(center=(self._width//2, self._height//2+game_over_rect.height+restart_game_button.height))
+        save_score_button = save_score_text.get_rect(center=(self._width//2, restart_game_button.top + 1.6*restart_game_button.height))
         self._save_score_button = save_score_button
         pygame.draw.rect(self._display, (0, 0, 0), save_score_button)
        
         self._display.blit(game_over_text, game_over_rect)
+        self._display.blit(main_menu_text, main_menu_button)
         self._display.blit(restart_game_text, restart_game_button) 
         self._display.blit(save_score_text, save_score_button)
 
