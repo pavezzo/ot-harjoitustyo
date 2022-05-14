@@ -99,3 +99,6 @@ class Ui:
             else:
                 self.width = monitor.width // 2
                 self.height = monitor.width // 2
+
+        self.width += self.width // 4
+        self.height += self.height // 4
