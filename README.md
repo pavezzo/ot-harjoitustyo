@@ -1,6 +1,6 @@
 # Ohjelmistotekniikan harjoitustyö: 2048 peli
 Sovellus on minun versio suositusta 2048 pelistä. Peliä pelataan nuolinäppäimillä.\
-[Loppupalautus](https://github.com/pavezzo/ot-harjoitustyo/releases/tag/loppupalautus)
+[Loppupalautus](https://github.com/pavezzo/ot-harjoitustyo/releases/tag/Loppupalautus)
 ## Dokumentaatio
 [tuntikirjanpito](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)\
 [vaatimusmäärittely](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)\
