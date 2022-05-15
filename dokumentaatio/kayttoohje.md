@@ -25,7 +25,7 @@ Pelaaminen tapahtuu pelinäkymässä. Näytölle piirtyy ruudukko ja ruudukon so
 ## Pelin päättyminen
 Pelin päätyttyä ruudulle ilmestyy valikko:\
 ![](./kuvat/peliohi.png)\
-Valikosta voidaan aloittaa peli uudelleen tai tallentaa tulos tietokantaan.
+Valikosta voidaan siirtyä aloitusvalikkoon, aloittaa peli uudelleen tai tallentaa tulos tietokantaan.
 
 ## Tuloksen tallentaminen
 Pelistä saaman tuloksen voi pelin loputtua tallentaa. Tallennusnäkymä lukee käyttäjän näppäinsyötettä ja painamalla save nappia tai enteriä ohjelma tallentaa tuloksen.\
