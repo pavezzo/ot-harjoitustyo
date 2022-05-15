@@ -1,5 +1,5 @@
 # Käyttöohje
-Lataa ohjelman uusin release.
+Lataa ohjelman uusin [release](https://github.com/pavezzo/ot-harjoitustyo/releases/tag/loppupalautus).
 ## Asennus
 1. Asenna riippuvuudet:
 ```bash
