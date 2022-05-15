@@ -17,7 +17,7 @@ Käyttöliittymä sisältää neljä erilaista näkymää:
 - Tulosten tarkastelu
 - Tuloksen tallentaminen
 
-Pelinäkymä pitää myös sisällään pelin loppuessa ilmestyvän valikon. Jokainen näistä näkymistä on omina luokkinaan ja niiden hallinnoimisesta ja näyttämisestä vastaa Ui-luokka.
+Pelinäkymä pitää myös sisällään pelin loppuessa ilmestyvän valikon. Jokainen näistä näkymistä on omina luokkinaan ja niiden hallinnoimisesta ja näyttämisestä vastaa Ui-luokka. Näkymät tallentavat omaan state-muuttujaan sen onko käyttäjä painanut jotain nappia. Ui-luokka tarkistaa tämän ja vaihtaa sen perusteella näkymän toiseen.
 
 ## Sovelluslogiikka
 
@@ -37,9 +37,12 @@ sequenceDiagram
       GameView ->> Game: new_keypress("up")
       Game -->> GameView: onnistui / epäonnistui
       UI ->> GameView: update_game()
+      GameView ->> Game: get_gamestate()
+      Game -->> GameView: pelin tila 2d-listana
+      GameView -->> User: pelin uusi tila näytöllä
 ```
 ### Tuloksen tallentaminen
-Tuloksen tallentaminen tapahtuu päättyneen pelin jälkeen jolloin Game-luokan pistemäärä ja käyttäjän antama nimi viedään HighscoresRepository-luokalle joka hoitaa sen tallentamisen.
+Tuloksen tallentaminen tapahtuu päättyneen pelin jälkeen jolloin Game-luokan pistemäärä, ruudukon koko ja käyttäjän antama nimi viedään HighscoresRepository-luokalle joka hoitaa sen tallentamisen.
 
 ```mermaid
 sequenceDiagram
@@ -55,6 +58,27 @@ sequenceDiagram
       GameView -->> Ui: score
       Ui ->> SaveScoreView: set_score(score)
       User ->> SaveScoreView: Kirjoittaa käyttäjänimen
-      SaveScoreView ->> HighscoresRepository: new_score(score, username)
+      SaveScoreView ->> HighscoresRepository: new_score(score, size, username)
 
 ```
+
+### Tulosten tarkastelu
+Tulosten tarkastelu hoituu ensin hakemalla tiedot HighscoresRepositorylta ja piirtämälle ne sitten näkymään.
+
+```mermaid
+sequenceDiagram
+      actor User
+      participant Ui
+      participant MenuView
+      participant HighscoreView
+      participant HighscoreRepository
+
+      Ui ->> MenuView: event_handler()
+      User ->> MenuView: painaa view highscores -nappia
+      MenuView ->> MenuView: state="highscores"
+      Ui ->> MenuView: check_state()
+      MenuView -->> Ui: "highscores"
+      Ui ->> HighscoreView: draw_highscore_view()
+      HighscoreView ->> HighscoreRepository: get_top_10()
+      HighscoreRepository -->> HighscoreView: top 10 pisteet
+      HighscoreView -->> User: huipputulokset näytöllä

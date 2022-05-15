@@ -1,7 +1,7 @@
 import unittest
 from repositories.highscores_repository import HighscoresRepository
 
-class TestRepository(unittest.TestCase):
+class RepositoryTest(unittest.TestCase):
     def setUp(self):
         self.highscores_repository = HighscoresRepository(True)
 

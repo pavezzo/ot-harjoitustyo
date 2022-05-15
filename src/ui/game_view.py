@@ -53,6 +53,8 @@ class GameView:
         self._restart_button = None
 
     def set_game_size(self, size=4):
+        """Asettaa uuden peliruudukoon ja laskee sen perusteella erilaisia pelin piirtämiseen tarvittavia muuttujia
+        """
         self._game_size = size
         self._game.new_game(size)
         self._box_padding = self._width // (self._game_size * 40)
@@ -106,7 +108,6 @@ class GameView:
                 if state[i][j] is not None:
                     text = self._font.render(str(state[i][j]), True, (0, 0, 0))
                     text_size = self._font.size(str(state[i][j]))
-                    #self._display.blit(text, (self._text_padding_width+j*self._width//self._game_size, self._text_padding_height+i*self._height//self._game_size))
                     self._display.blit(text, (cell.left+((cell.width-text_size[0])//2), cell.top+((cell.height-text_size[1])//2)))
 
         score = self._game.get_score()

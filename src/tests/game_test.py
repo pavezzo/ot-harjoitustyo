@@ -42,3 +42,9 @@ class TestGame(unittest.TestCase):
     def test_can_continue_return_true_if_can_continue(self):
         self.game.set_board([[2, 2, 4, 8], [16, 8, 4, 2], [2, 4, 8, 16], [16, 8, 4, 2]])
         self.assertEqual(self.game.can_continue(), True)
+
+    def test_new_game_right_size(self):
+        self.game.new_game(2)
+        self.assertEqual(len(self.game.get_gamestate()), 2)
+        self.game.new_game(9)
+        self.assertEqual(len(self.game.get_gamestate()), 9)

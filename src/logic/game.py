@@ -36,6 +36,11 @@ class Game:
         return self.score
 
     def new_game(self, size):
+        """Luo halutunkokoisen uuden pelin
+
+        Args:
+            size (kokonaisluku): Ruudukon rivin ja kolumnin koko
+        """
         self.score = 0
         self.game_size = size
         self.board = self._create_empty_board()
