@@ -6,7 +6,8 @@ Sovellus on minun versio suositusta 2048 pelistä. Peliä pelataan nuolinäppäi
 [vaatimusmäärittely](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)\
 [changelog](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)\
 [arkkitehtuurikuvaus](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)\
-[käyttöohje](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+[käyttöohje](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)\
+[testausdokumentti](https://github.com/pavezzo/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
 
 ## Asennus
 1. Asenna riippuvuudet:
