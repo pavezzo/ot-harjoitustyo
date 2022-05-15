@@ -10,5 +10,6 @@
 | 23.4. | 4    | ui:n muutoksia, näkymien lisäämistä |
 | 26.4. | 2    | ui:n kehittämistä, testejä ja sekvenssikaavio |
 | 3.5.  | 5    | docstring, arkkitehtuurikuvausta, käyttöohje, värien lisääminen ruutuihin ja siistimistä |
-| 12.5. | 3    | dokumentaatiota
-| yht.	| 23   | |
+| 12.5. | 3    | dokumentaatiota |
+| 15.5. | 6    | dokumentaatiota, lisätty mahdollisuus itse valita ruudukon koko
+| yht.	| 29   | |

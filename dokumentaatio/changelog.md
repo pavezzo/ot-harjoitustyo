@@ -12,3 +12,5 @@
 ## Viikko 6
 - UI laskee pelin resoluution näytön koosta
 - Lisätty alustavat värit laattoihin
+## Viikko 7
+- Lisätty mahdollisuus itse valita ruudukon koko
