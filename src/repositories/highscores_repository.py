@@ -1,12 +1,17 @@
 from db_connection import get_db_connection
+from db_connection import get_testdb_connection
+from initialize_db import initialize_db
 
 class HighscoresRepository:
     """Luokka, jolla hallinoidaan uusien tulosten lisäämistä ja hakemista tietokannasta
     """
-    def __init__(self):
+    def __init__(self, testing=False):
         """Luokan konstruktori, jossa luodaan tietokantaan yhteys
         """
         self._connection = get_db_connection()
+        if testing:
+            self._connection = get_testdb_connection()
+            initialize_db(True)
 
     def new_score(self, score, username, size):
         """Lisää uuden tuloksen tietokantaan
