@@ -1,4 +1,3 @@
-from venv import create
 from db_connection import get_db_connection
 from db_connection import get_testdb_connection
 
@@ -27,13 +26,14 @@ def drop_tables(connection):
     connection.commit()
 
 def initialize_db(testing=False):
-    """Suorittaa tietokannan tyhjennyksen ja uudelleen luonnin. Jos käytetään testauksessa niin suorittaa nämä testitietokannassa.
+    """Suorittaa tietokannan tyhjennyksen ja uudelleen luonnin.
+    Jos käytetään testauksessa niin suorittaa nämä testitietokannassa.
     """
     connection = get_db_connection()
     if testing:
         connection = get_testdb_connection()
     drop_tables(connection)
-    create_tables(connection)   
+    create_tables(connection)
 
 
 if __name__ == "__main__":
